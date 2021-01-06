@@ -396,12 +396,6 @@ public class BowlingScript : MonoBehaviour
 				yield break;
 			}
 			
-			if (parameters[1].Length > 2)
-			{
-				yield return "sendtochaterror Number being sent is longer than 2 characters. That is not possible. The command was not processed.";
-				yield break;
-			}
-			
 			int Out;
 			if (!Int32.TryParse(parameters[1], out Out))
 			{
@@ -452,12 +446,6 @@ public class BowlingScript : MonoBehaviour
 			if (parameters.Length != 2)
 			{
 				yield return "sendtochaterror Invalid parameter length. The command was not processed.";
-				yield break;
-			}
-			
-			if (parameters[1].Length > 2)
-			{
-				yield return "sendtochaterror Number being sent is longer than 2 characters. That is not possible. The command was not processed.";
 				yield break;
 			}
 			
