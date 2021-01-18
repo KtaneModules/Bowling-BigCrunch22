@@ -290,7 +290,7 @@ public class BowlingScript : MonoBehaviour
 					CorrectPosition = 5;
 				}
 				
-				else if (new[] { 3, 7 }.All(c => ValidPins.Contains(c)))
+				else if (new[] { 3, 7 }.All(c => !ValidPins.Contains(c)))
 				{
 					CorrectAngle = 35;
 					CorrectPosition = 9;
