@@ -464,7 +464,7 @@ public class BowlingScript : MonoBehaviour
 			
 			if (Out == CurrentPosition)
 			{
-				yield return "sendtochaterror The angle is already set to this number. The command was not processed.";
+				yield return "sendtochaterror The position is already set to this number. The command was not processed.";
 				yield break;
 			}
 			
