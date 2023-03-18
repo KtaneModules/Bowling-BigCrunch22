@@ -309,7 +309,7 @@ public class BowlingScript : MonoBehaviour
 	void ButtonPress(int Press)
 	{
 		Buttons[Press].AddInteractionPunch(0.2f);
-		Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.BigButtonPress, transform);
+		Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.BigButtonPress, Buttons[Press].transform);
 		if (!ModuleSolved)
 		{
 			switch (Press)
@@ -351,7 +351,7 @@ public class BowlingScript : MonoBehaviour
 	void SubmitAnswer()
 	{
 		Submit.AddInteractionPunch(0.2f);
-		Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.BigButtonPress, transform);
+		Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.BigButtonPress, Submit.transform);
 		if (!ModuleSolved)
 		{
 			if (CurrentPosition == CorrectPosition && CurrentAngle == CorrectAngle)
@@ -486,5 +486,12 @@ public class BowlingScript : MonoBehaviour
 				}
 			}
 		}
-	}	
+	}
+
+	IEnumerator TwitchHandleForcedSolve()
+	{
+		yield return ProcessTwitchCommand("angle " + CorrectAngle);
+		yield return ProcessTwitchCommand("position " + CorrectPosition);
+		Submit.OnInteract();
+	}
 }
